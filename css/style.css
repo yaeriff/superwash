@@ -97,7 +97,7 @@ body {
 
 /* Header Kuning */
 .top-bar {
-  background-color: #ffd700; /* Warna Kuning */
+  background-color: #ffd700;
   padding: 15px 30px;
   padding-bottom: 10px;
   display: flex;
@@ -294,6 +294,55 @@ table td {
 
 table tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.dataTables_wrapper {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.dataTables_wrapper input[type="search"] {
+  width: 300px !important; /* Ubah angka ini untuk mengatur panjangnya */
+  padding: 8px 10px; /* Sedikit padding agar teks lega */
+  margin-left: 10px;
+}
+
+.dataTables_wrapper select {
+  /* border: 1px solid #e67e22; */
+  border-radius: 5px;
+  padding: 5px;
+  /* padding-bottom: 24px; */
+  outline: none;
+}
+
+.dataTables_wrapper input[type="search"]:focus,
+.dataTables_wrapper select:focus {
+  box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: #e67e22 !important;
+  color: white !important;
+  border: 1px solid #e67e22 !important;
+  border-radius: 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #ffd700 !important; /* Warna Kuning saat dihover */
+  color: black !important;
+  border: 1px solid #ffd700 !important;
+}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length {
+  margin-bottom: 20px !important; /* Ini kuncinya! Memberi jarak 20px ke bawah */
+  padding-top: 10px; /* Memberi sedikit ruang napas di atas */
+}
+
+table.dataTable thead th {
+  background-color: #ffd700;
+  border-bottom: 2px solid #e67e22;
 }
 
 /* Footer */

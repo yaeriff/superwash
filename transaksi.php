@@ -31,8 +31,8 @@ $paketSatuan = [
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="css/style.css?t=<?php echo time(); ?>">
 
 </head>
@@ -71,7 +71,7 @@ $paketSatuan = [
             <div class="left-nav">
                 <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <h2 class="page-title">Beranda Karyawan</h2>
+            <h2 class="page-title">Transakasi</h2>
             <div class="auth-buttons">
                 <a href="login.php">
                     <button class="btn-login">Masuk</button>
@@ -82,51 +82,30 @@ $paketSatuan = [
             </div>
         </header>
 
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-image">
-                   <img src="img/mesincuci.png" alt="Laundry Machine">
-                </div>
-                <div class="hero-text">
-                    <h1>Percayakan<br>Cucianmu pada<br>Ahlinya <i></i></h1>
-                </div>
-            </div>
-        </section>
-
-        <section class="status-section">
-            <h3>Status Pesanan</h3>
-            <div class="cards-container">
-                <?php foreach($stats as $stat): ?>
-                <div class="card">
-                    <small><?= $stat['title'] ?></small>
-                    <span class="date"><?= $stat['date'] ?></span>
-                    <div class="count"><?= $stat['count'] ?></div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
         <section class="table-section">
-            <h3>List Paket PerKilo</h3>
             <div class="table-responsive">
-                <table>
+                <table id="tabelTransaksi" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Kode Paket</th>
-                            <th>Nama Paket</th>
-                            <th>Harga</th>
-                            <th>Estimasi</th>
-                            <th>Jenis Cuci</th>
+                            <th>Kode Transaksi</th>
+                            <th>Tanggal</th>
+                            <th>Jumlah Kilogram</th>
+                            <th>Id Karyawan</th>
+                            <th>Kode Booking</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($paketKilo as $row): ?>
+                        <?php foreach($dataTransaksi as $row): ?>
                         <tr>
-                            <td><?= $row['code'] ?></td>
-                            <td><?= $row['name'] ?></td>
-                            <td><?= number_format($row['price'], 0, ',', '.') ?></td>
-                            <td><?= $row['est'] ?> Hari</td>
-                            <td><?= $row['type'] ?></td>
+                            <td><?= $row['kode'] ?></td>
+                            <td><?= $row['tanggal'] ?></td>
+                            <td><?= $row['kg'] ?></td>
+                            <td><?= $row['karyawan'] ?></td>
+                            <td><?= $row['booking'] ?></td>
+                            <td>
+                                <button class="btn-detail">Detail</button>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -134,33 +113,6 @@ $paketSatuan = [
             </div>
         </section>
 
-        <section class="table-section">
-            <h3>List Paket Satuan</h3>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Kode Paket</th>
-                            <th>Nama Paket</th>
-                            <th>Harga</th>
-                            <th>Estimasi</th>
-                            <th>Jenis Cuci</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($paketSatuan as $row): ?>
-                        <tr>
-                            <td><?= $row['code'] ?></td>
-                            <td><?= $row['name'] ?></td>
-                            <td>Rp <?= number_format($row['price'], 0, ',', '.') ?></td>
-                            <td><?= $row['est'] ?> Hari</td>
-                            <td><?= $row['type'] ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </section>
 
         <footer class="footer">
             <p><i class="fa-solid fa-save"></i> Kelompok 4 2025</p>
@@ -169,6 +121,30 @@ $paketSatuan = [
     </main>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tabelTransaksi').DataTable({
+            language: {
+                search: "Cari:",
+                lengthMenu: "Tampilan _MENU_ entri",
+                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                infoEmpty: "Menampilkan 0 sampai 0 dari 0 entri",
+                infoFiltered: "(disaring dari _MAX_ total entri)",
+                paginate: {
+                    first: "Awal",
+                    last: "Akhir",
+                    next: "Lanjut",
+                    previous: "Kembali"
+                }
+            }
+        });
+    });
+</script>
+
 <script src="js/skrip.js"></script>
 </body>
 </html>
+
