@@ -71,15 +71,7 @@ $paketSatuan = [
             <div class="left-nav">
                 <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <h2 class="page-title">Beranda Karyawan</h2>
-            <div class="auth-buttons">
-                <a href="login.php">
-                    <button class="btn-login">Masuk</button>
-                </a>
-                <a href="register.php">
-                    <button class="btn-register">Daftar</button>
-                </a>
-            </div>
+            <h2 class="page-title">Beranda Owner</h2>
         </header>
 
         <section class="hero">
