@@ -302,8 +302,8 @@ table tr:nth-child(even) {
 }
 
 .dataTables_wrapper input[type="search"] {
-  width: 300px !important; /* Ubah angka ini untuk mengatur panjangnya */
-  padding: 8px 10px; /* Sedikit padding agar teks lega */
+  width: 300px !important;
+  padding: 8px 10px;
   margin-left: 10px;
 }
 
@@ -329,15 +329,15 @@ table tr:nth-child(even) {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: #ffd700 !important; /* Warna Kuning saat dihover */
+  background: #ffd700 !important;
   color: black !important;
   border: 1px solid #ffd700 !important;
 }
 
 .dataTables_wrapper .dataTables_filter,
 .dataTables_wrapper .dataTables_length {
-  margin-bottom: 20px !important; /* Ini kuncinya! Memberi jarak 20px ke bawah */
-  padding-top: 10px; /* Memberi sedikit ruang napas di atas */
+  margin-bottom: 20px !important;
+  padding-top: 10px;
 }
 
 table.dataTable thead th {
@@ -374,5 +374,219 @@ table.dataTable thead th {
     text-align: center;
     margin-left: 0;
     margin-top: 10px;
+  }
+}
+
+/* CSS Login */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffeeb0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("../img/background-login.png");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.login-left,
+.login-right {
+  position: relative;
+  z-index: 1;
+}
+
+.login-left {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.illustration-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.hanger-icon {
+  font-size: 60px;
+  color: #1a253a;
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  transform: rotate(-15deg);
+}
+
+.illustration-wrapper h1::after {
+  content: "\f553";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.illustration-wrapper p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.hanger-icon {
+  font-size: 40px;
+  top: -40px;
+  left: -20px;
+}
+
+.laundry-img {
+  width: 220px;
+  margin-top: 10px;
+}
+
+.login-left h1 {
+  font-size: 42px;
+  color: #1a253a;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.login-left p {
+  font-size: 18px;
+  color: #1a253a;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* .laundry-img {
+  width: 500px;
+  display: block;
+  margin-top: 20px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+} */
+
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: #1a253a;
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 350px;
+  color: white;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.login-logo i {
+  font-size: 40px;
+  color: #ffd700;
+  margin-bottom: 5px;
+}
+
+.login-logo .logo-text {
+  font-weight: bold;
+  color: #ffd700;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Input Form */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #95a5a6;
+  color: #1a253a;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  background-color: #fff;
+}
+
+/* Tombol Masuk */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #d35400;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffeeb0;
   }
 }
