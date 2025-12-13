@@ -33,7 +33,7 @@ $paketSatuan = [
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?t=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/style2.css?t=<?php echo time(); ?>">
 
 </head>
 <body>
@@ -44,7 +44,7 @@ $paketSatuan = [
         <div class="logo-area">
             <div class="logo-placeholder">
                 <i class="fa-solid fa-jug-detergent"></i><br>
-                <span><img src="img/superwash_logo.png" alt=""></span>
+                <span><img src="../img/superwash_logo.png" alt=""></span>
             </div>
         </div>
         
@@ -71,13 +71,19 @@ $paketSatuan = [
             <div class="left-nav">
                 <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <h2 class="page-title">Beranda Karyawan</h2>
+            <h2 class="page-title">Dashboard Karyawan</h2>
+           <div class="search-and-admin">
+                <div class="auth-info">
+                     <div class="admin-avatar"><i class="fa-solid fa-user"></i></div>
+                     <span class="admin-name">Hi, Admin <i class="fa-solid fa-caret-down"></i></span>
+                </div>
+            </div>
         </header>
 
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-image">
-                   <img src="img/mesincuci.png" alt="Laundry Machine">
+                   <img src="../img/mesincuci.png" alt="Laundry Machine">
                 </div>
                 <div class="hero-text">
                     <h1>Percayakan<br>Cucianmu pada<br>Ahlinya <i></i></h1>
@@ -161,6 +167,6 @@ $paketSatuan = [
     </main>
 </div>
 
-<script src="js/skrip.js"></script>
+<script src="../js/skrip.js"></script>
 </body>
 </html>
