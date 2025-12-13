@@ -7,6 +7,9 @@
 
 body {
   background-color: #fffdf5;
+  background: linear-gradient(to bottom, #ffe79a 0%, #fffdf5 400px);
+  background-repeat: no-repeat; /* Agar tidak berulang */
+  min-height: 100vh;
 }
 
 .container {
@@ -282,7 +285,12 @@ body {
 }
 
 .table-responsive {
-  overflow-x: auto;
+  overflow-x: hidden;
+  border-bottom: none !important;
+}
+
+table.dataTable tbody tr:last-child td {
+  border-bottom: 2px solid #e67e22 !important;
 }
 
 table {
@@ -313,18 +321,27 @@ table tr:nth-child(even) {
 }
 
 .dataTables_wrapper {
-  padding: 20px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   font-family: "Poppins", sans-serif;
 }
 
 .dataTables_wrapper input[type="search"] {
+  background-color: #ffffff !important;
+  border: 1px solid #ced4da !important;
+  color: #495057 !important;
   width: 300px !important;
   padding: 8px 10px;
-  margin-left: 10px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 10px !important;
 }
 
 .dataTables_wrapper select {
   /* border: 1px solid #e67e22; */
+  background-color: #ffffff !important;
+  border: 1px solid #ced4da !important;
+  color: #495057 !important;
   border-radius: 5px;
   padding: 5px;
   /* padding-bottom: 24px; */
@@ -352,13 +369,33 @@ table tr:nth-child(even) {
 
 .dataTables_wrapper .dataTables_filter,
 .dataTables_wrapper .dataTables_length {
-  margin-bottom: 20px !important;
-  padding-top: 10px;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 45px;
+  margin-bottom: 10px !important;
+}
+
+.dataTables_wrapper .dataTables_length {
+  float: left !important;
+}
+.dataTables_wrapper .dataTables_filter {
+  float: right !important;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 0 !important;
+  font-weight: normal;
 }
 
 table.dataTable thead th {
   background-color: #ffd700;
   border-bottom: 2px solid #e67e22;
+}
+
+table.dataTable {
+  border-bottom: none !important;
 }
 
 /* Footer */
@@ -653,6 +690,8 @@ table.dataTable thead th {
 }
 
 .btn-add-large {
+  height: 40px;
+  margin-left: 0 !important;
   background-color: #fd7e14;
   color: white;
   border: none;
@@ -661,7 +700,7 @@ table.dataTable thead th {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 0px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -669,4 +708,10 @@ table.dataTable thead th {
 }
 .btn-add-large:hover {
   background-color: #e67e22;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
 }

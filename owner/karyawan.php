@@ -14,15 +14,11 @@ $data_karyawan = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Karyawan - Super Wash</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    
     <link rel="stylesheet" href="../css/style.css?t=<?php echo time(); ?>">
     
     <style>
@@ -33,6 +29,7 @@ $data_karyawan = [
             gap: 5px;
         }
     </style>
+    
 </head>
 <body>
 
@@ -111,7 +108,6 @@ $data_karyawan = [
                     </tbody>
                 </table>
             </div>
-            
             <button class="btn-add-large"><i class="fa-solid fa-plus"></i> Tambah</button>
         </section>
 
