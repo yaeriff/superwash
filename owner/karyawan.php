@@ -29,7 +29,7 @@ $data_karyawan = [
             gap: 5px;
         }
     </style>
-    
+
 </head>
 <body>
 
@@ -108,7 +108,9 @@ $data_karyawan = [
                     </tbody>
                 </table>
             </div>
-            <button class="btn-add-large"><i class="fa-solid fa-plus"></i> Tambah</button>
+            <button class="btn-add-large" onclick="window.location.href='addkaryawan.php'">
+                <i class="fa-solid fa-plus"></i> Tambah
+            </button>
         </section>
 
         <footer class="footer">
