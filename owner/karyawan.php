@@ -1,12 +1,3 @@
-<?php
-$data_karyawan = [
-    ['id' => 'KRY001', 'nama' => 'Ahmad Santoso', 'nohandphone' => '082336428792', 'alamat' => 'solo', 'username' => 'ahmda', 'ps' => 'aaa123'],
-    ['id' => 'KRY002', 'nama' => 'Siti Aminah', 'nohandphone' => '082336428792', 'alamat' => 'semarang', 'username' => 'sisi', 'ps' => 'siti123' ],
-    ['id' => 'KRY003', 'nama' => 'Budi Hartono', 'nohandphone' => '082336428792', 'alamat' => 'magelang', 'username' => 'budbud', 'ps' => 'bufu123'],
-    ['id' => 'KRY004', 'nama' => 'Dewi Lestari', 'nohandphone' => '082336428792', 'alamat' => 'salatiga', 'username' => 'dwi', 'ps' => '123123'],
-    ['id' => 'KRY005', 'nama' => 'Eko Prasetyo', 'nohandphone' => '082336428792', 'alamat' => 'ambarawa', 'username' => 'eko', 'ps' => 'ekontol'],
-];
-?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -85,26 +76,29 @@ $data_karyawan = [
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($data_karyawan as $karyawan): ?>
+                        <?php 
+                        include '../koneksi.php';
+                        $query = mysqli_query($koneksi, "SELECT * FROM karyawan");
+                        
+                        while($karyawan = mysqli_fetch_array($query)): 
+                        ?>
                         <tr>
-                            <td><?= $karyawan['id'] ?></td>
+                            <td><?= $karyawan['id_karyawan'] ?></td>
                             <td><?= $karyawan['nama'] ?></td>
-                            <td><?= $karyawan['nohandphone'] ?></td>
+                            <td><?= $karyawan['nohp'] ?></td>
                             <td><?= $karyawan['alamat'] ?></td>
                             <td><?= $karyawan['username'] ?></td>
-                            <td><?= $karyawan['ps'] ?></td>
+                            <td><?= $karyawan['password'] ?></td>
                             <td>
-                                
-                                <button class="btn-edit">
+                                <a href="editkaryawan.php?id=<?= $karyawan['id_karyawan'] ?>" class="btn-edit" style="text-decoration:none;">
                                     <i class="fa-solid fa-pen-to-square"></i> Edit
-                                </button>
-                                
+                                </a>
                                 <button class="btn-delete">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>

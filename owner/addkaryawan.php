@@ -1,3 +1,17 @@
+<?php
+include '../koneksi.php';
+
+$query = mysqli_query($koneksi, "SELECT max(id_karyawan) as kodeTerbesar FROM karyawan");
+$data = mysqli_fetch_array($query);
+$kodeKaryawan = $data['kodeTerbesar'];
+
+$urutan = (int) substr($kodeKaryawan, 1, 4); 
+$urutan++;
+
+$huruf = "K";
+$kodeBaru = $huruf . sprintf("%04s", $urutan);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -86,7 +100,7 @@
                     
                     <div class="form-row">
                         <label>ID Karyawan</label>
-                        <input type="text" name="id_karyawan" value="K0001" readonly style="cursor: not-allowed; color: #555;">
+                        <input type="text" name="id_karyawan" value="<?= $kodeBaru ?>" readonly style="cursor: not-allowed; color: #555; background-color: #ddd;">
                     </div>
 
                     <div class="form-row">
