@@ -864,3 +864,30 @@ table.dataTable tbody tr:nth-child(even) {
   background-color: #ffffff;
 }
 /*                                           */
+/* untuk halaman Pesanan (pesanan.php) */
+.btn-action-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fd7e14;
+  color: white;
+  width: 35px; /* Lebar kotak */
+  height: 35px; /* Tinggi kotak */
+  border-radius: 5px; /* Sedikit melengkung sudutnya */
+  text-decoration: none;
+  font-size: 18px; /* Ukuran icon */
+  transition: 0.3s;
+  border: none;
+}
+
+.btn-action-icon:hover {
+  background-color: #e67e22;
+  color: white;
+}
+
+/* Pastikan kolom aksi tabel Pesanan tidak terlalu lebar */
+#tabelPesanan td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+/*                                           */
