@@ -93,9 +93,12 @@
                                 <a href="editkaryawan.php?id=<?= $karyawan['id_karyawan'] ?>" class="btn-edit" style="text-decoration:none;">
                                     <i class="fa-solid fa-pen-to-square"></i> Edit
                                 </a>
-                                <button class="btn-delete">
+                                <a href="hapuskaryawan.php?id=<?= $karyawan['id_karyawan'] ?>" 
+                                    class="btn-delete" 
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data karyawan ini? Data yang dihapus tidak bisa dikembalikan.');"
+                                    style="text-decoration:none;">
                                     <i class="fa-solid fa-trash"></i>
-                                </button>
+                                </a>
                             </td>
                         </tr>
                         <?php endwhile; ?>
