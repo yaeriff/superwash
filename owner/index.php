@@ -1,5 +1,17 @@
 <?php
+session_start();
+if($_SESSION['status'] != "login"){
+    header("location:../login.php?pesan=belum_login");
+    exit;
+}
+
+if($_SESSION['role'] != "owner"){
+    header("location:../admin/index.php"); 
+    exit;
+}
+
 include '../koneksi.php';
+
 function formatTanggalIndo($tanggal) {
     if ($tanggal == null || $tanggal == '0000-00-00 00:00:00') {
         return "-";
@@ -58,8 +70,22 @@ $stats = [
     ]
 ];
 
+// Label Bulan
 $labels_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-$data_transaksi = [20, 18, 28, 15, 40, 36, 26, 15, 40, 25, 28, 30];
+
+$data_transaksi = array_fill(0, 12, 0);
+$tahun_ini = date('Y');
+$queryGrafik = mysqli_query($koneksi, "
+    SELECT MONTH(tanggal) as bulan, COUNT(*) as total 
+    FROM transaksi 
+    WHERE YEAR(tanggal) = '$tahun_ini' 
+    GROUP BY MONTH(tanggal)
+");
+
+while($row = mysqli_fetch_assoc($queryGrafik)){
+    $index = $row['bulan'] - 1;
+    $data_transaksi[$index] = $row['total'];
+}
 
 ?>
 
@@ -116,7 +142,27 @@ $data_transaksi = [20, 18, 28, 15, 40, 36, 26, 15, 40, 25, 28, 30];
             <div class="left-nav">
                 <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
             </div>
+            
             <h2 class="page-title">Beranda Owner</h2>
+
+            <div class="profile-dropdown">
+                <div class="profile-trigger" id="profileTrigger">
+                    <div class="profile-icon">
+                        <?= substr($_SESSION['nama'], 0, 1) ?> </div>
+                    <span class="profile-name">
+                        Hi, <?= $_SESSION['nama'] ?> <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                </div>
+
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.php">
+                        <i class="fa-regular fa-user" style="margin-right: 8px;"></i> Profile
+                    </a>
+                    <a href="../logout.php" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i> Logout
+                    </a>
+                </div>
+            </div>
         </header>
 
         <section class="hero">

@@ -52,4 +52,23 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   }
+
+  const profileTrigger = document.getElementById("profileTrigger");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  if (profileTrigger && dropdownMenu) {
+    profileTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (
+        !dropdownMenu.contains(e.target) &&
+        !profileTrigger.contains(e.target)
+      ) {
+        dropdownMenu.classList.remove("active");
+      }
+    });
+  }
 });

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css?t=<?php echo time(); ?>">
 </head>
 <body>
@@ -27,23 +28,34 @@
         <div class="login-right">
             <div class="login-card">
                 <div class="login-logo">
-                    <i class="fa-solid fa-jug-detergent"></i>
                     <div class="logo-placeholder">
-                        <i class="fa-solid fa-jug-detergent"></i><br>
-                            <span><img src="img/superwash_logo.png" alt=""></span>
+                         <span><img src="img/superwash_logo.png" alt="" style="width: 80px;"></span>
                     </div>
                 </div>
 
                 <h2>Masuk Akun</h2>
 
-                <form action="index.php" method="POST"> <div class="form-group">
+                <?php 
+                if(isset($_GET['pesan'])){
+                    if($_GET['pesan'] == "gagal"){
+                        echo "<div style='background: #ffecec; color: red; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;'>Username atau Password salah!</div>";
+                    } else if($_GET['pesan'] == "logout"){
+                        echo "<div style='background: #e1ffe1; color: green; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;'>Anda telah berhasil logout</div>";
+                    } else if($_GET['pesan'] == "belum_login"){
+                        echo "<div style='background: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;'>Silahkan login terlebih dahulu</div>";
+                    }
+                }
+                ?>
+
+                <form action="cek_login.php" method="POST"> 
+                    <div class="form-group">
                         <label for="username">Nama Pengguna</label>
-                        <input type="text" id="username" name="username" placeholder="">
+                        <input type="text" id="username" name="username" placeholder="" required>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Sandi</label>
-                        <input type="password" id="password" name="password" placeholder="">
+                        <input type="password" id="password" name="password" placeholder="" required>
                     </div>
 
                     <button type="submit" class="btn-submit">Masuk</button>
@@ -52,6 +64,5 @@
         </div>
         
     </div>
-
 </body>
 </html>

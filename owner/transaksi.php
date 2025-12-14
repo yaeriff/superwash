@@ -1,4 +1,15 @@
 <?php
+session_start();
+if($_SESSION['status'] != "login"){
+    header("location:../login.php?pesan=belum_login");
+    exit;
+}
+
+if($_SESSION['role'] != "owner"){
+    header("location:../admin/index.php"); 
+    exit;
+}
+
 include '../koneksi.php';
 ?>
 
@@ -51,7 +62,26 @@ include '../koneksi.php';
             <div class="left-nav">
                 <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
             </div>
+            
             <h2 class="page-title">Transaksi</h2>
+            <div class="profile-dropdown">
+                <div class="profile-trigger" id="profileTrigger">
+                    <div class="profile-icon">
+                        <?= substr($_SESSION['nama'], 0, 1) ?> </div>
+                    <span class="profile-name">
+                        Hi, <?= $_SESSION['nama'] ?> <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                </div>
+
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.php">
+                        <i class="fa-regular fa-user" style="margin-right: 8px;"></i> Profile
+                    </a>
+                    <a href="../logout.php" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i> Logout
+                    </a>
+                </div>
+            </div>
         </header>
 
         <section class="table-section">
