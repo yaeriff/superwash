@@ -27,10 +27,16 @@ body {
   transition: all 0.3s ease;
   overflow: hidden;
   white-space: nowrap;
+  flex-shrink: 0;
+
+  justify-content: flex-start !important;
+  padding-top: 30px !important;
 }
 
 .logo-area {
-  padding: 10px;
+  padding: 0 10px;
+  margin-top: 0 !important;
+  margin-bottom: 20px;
 
   display: flex;
   flex-direction: column;
@@ -42,7 +48,7 @@ body {
 .logo-area img {
   width: 80px;
   height: auto;
-  margin-bottom: 10px;
+  display: block;
 }
 
 .menu {
@@ -67,9 +73,25 @@ body {
 }
 
 .sidebar.hidden {
-  width: 0px;
-  padding: 0;
+  width: 0px !important;
+  padding: 0 !important;
   opacity: 0;
+}
+
+/* KONDISI MOBILE (Layar Kecil) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 0px !important;
+  }
+
+  /* Saat tombol diklik di HP */
+  .sidebar.active {
+    width: 250px !important;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* rensponsive mobile */
@@ -245,6 +267,7 @@ body {
   color: #888;
   display: block;
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .card .count {
@@ -359,6 +382,7 @@ table tr:nth-child(even) {
   color: white !important;
   border: 1px solid #e67e22 !important;
   border-radius: 5px;
+  margin-top: 1px;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -788,3 +812,55 @@ table.dataTable {
   }
 }
 /*                                               */
+/* --- CSS TAMBAHAN UNTUK HALAMAN TRANSAKSI --- */
+.btn-grafik {
+  background-color: #fd7e14;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara icon dan teks */
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.btn-grafik:hover {
+  background-color: #e67e22;
+  color: white;
+}
+
+.btn-detail {
+  background-color: #fd7e14;
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.3s;
+  width: 100%;
+  max-width: 80px;
+}
+
+.btn-detail:hover {
+  background-color: #e67e22;
+}
+
+table.dataTable thead th {
+  background-color: #ffd700;
+  color: #000;
+  border-bottom: 2px solid #e67e22;
+  padding: 12px 10px;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+table.dataTable tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+/*                                           */

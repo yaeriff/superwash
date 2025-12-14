@@ -2,29 +2,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggleSidebar");
   const sidebar = document.getElementById("sidebar");
 
-  toggleBtn.addEventListener("click", function () {
-    if (window.innerWidth <= 768) {
-      sidebar.classList.toggle("active");
-    } else {
-      sidebar.classList.toggle("hidden");
-    }
-  });
-});
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle("active");
+        sidebar.classList.remove("hidden");
+      } else {
+        sidebar.classList.toggle("hidden");
+        sidebar.classList.remove("active");
+      }
+    });
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
   const chartCanvas = document.getElementById("myBarChart");
 
-  if (chartCanvas) {
+  if (
+    chartCanvas &&
+    typeof Chart !== "undefined" &&
+    typeof dataGrafik !== "undefined"
+  ) {
     const ctx = chartCanvas.getContext("2d");
-
-    const myBarChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: "bar",
       data: {
-        labels: dataGrafik.labels, // ambil dari jembatan
+        labels: dataGrafik.labels,
         datasets: [
           {
             label: "Jumlah Transaksi",
-            data: dataGrafik.values, // ambil dari jembatan
+            data: dataGrafik.values,
             backgroundColor: "#fd7e14",
             borderColor: "#e67e22",
             borderWidth: 1,
@@ -37,24 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              font: {
-                family: "'Poppins', sans-serif",
-                size: 14,
-              },
-            },
-          },
+          legend: { position: "bottom" },
         },
         scales: {
-          y: {
-            beginAtZero: true,
-            grid: { color: "#f0f0f0" },
-          },
-          x: {
-            grid: { display: false },
-          },
+          y: { beginAtZero: true },
+          x: { grid: { display: false } },
         },
       },
     });

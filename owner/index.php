@@ -1,8 +1,61 @@
 <?php
+include '../koneksi.php';
+function formatTanggalIndo($tanggal) {
+    if ($tanggal == null || $tanggal == '0000-00-00 00:00:00') {
+        return "-";
+    }
+    
+    $tgl_saja = date('Y-m-d', strtotime($tanggal));
+    
+    $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tgl_saja);
+    return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+
+$qKaryawan = mysqli_query($koneksi, "SELECT COUNT(*) as total, MAX(updated_at) as terakhir FROM karyawan");
+$dKaryawan = mysqli_fetch_assoc($qKaryawan);
+$jmlKaryawan = $dKaryawan['total'];
+$tglKaryawan = formatTanggalIndo($dKaryawan['terakhir']);
+
+$qBooking = mysqli_query($koneksi, "SELECT COUNT(*) as total, MAX(updated_at) as terakhir FROM pemesanan");
+$dBooking = mysqli_fetch_assoc($qBooking);
+$jmlBooking = $dBooking['total'];
+$tglBooking = formatTanggalIndo($dBooking['terakhir']);
+
+$qTransaksi = mysqli_query($koneksi, "SELECT COUNT(*) as total, MAX(updated_at) as terakhir FROM transaksi");
+$dTransaksi = mysqli_fetch_assoc($qTransaksi);
+$jmlTransaksi = $dTransaksi['total'];
+$tglTransaksi = formatTanggalIndo($dTransaksi['terakhir']);
+
 $stats = [
-    ['title' => 'Jumlah Karyawan', 'count' => 3, 'date' => '20 November 2025'],
-    ['title' => 'Total Booking', 'count' => 15, 'date' => '20 November 2025'],
-    ['title' => 'Total Transaksi', 'count' => 20, 'date' => '20 November 2025']
+    [
+        'title' => 'Jumlah Karyawan', 
+        'count' => $jmlKaryawan, 
+        'date'  => $tglKaryawan 
+    ],
+    [
+        'title' => 'Total Booking',   
+        'count' => $jmlBooking,  
+        'date'  => $tglBooking 
+    ],
+    [
+        'title' => 'Total Transaksi', 
+        'count' => $jmlTransaksi,
+        'date'  => $tglTransaksi 
+    ]
 ];
 
 $labels_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
@@ -33,7 +86,6 @@ $data_transaksi = [20, 18, 28, 15, 40, 36, 26, 15, 40, 25, 28, 30];
     <aside class="sidebar" id="sidebar">
         <div class="logo-area">
             <div class="logo-placeholder">
-                <i class="fa-solid fa-jug-detergent"></i><br>
                 <span><img src="../img/superwash_logo.png" alt=""></span>
             </div>
         </div>
@@ -84,12 +136,15 @@ $data_transaksi = [20, 18, 28, 15, 40, 36, 26, 15, 40, 25, 28, 30];
                 <?php foreach($stats as $stat): ?>
                 <div class="card">
                     <small><?= $stat['title'] ?></small>
+                    
                     <span class="date"><?= $stat['date'] ?></span>
+                    
                     <div class="count"><?= $stat['count'] ?></div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </section>
+
         <h3 id="judultable">Grafik Jumlah Transaksi Per Bulan</h3>
         <section class="table-section" id="grafik">
             
