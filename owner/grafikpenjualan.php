@@ -223,25 +223,23 @@ while($row = mysqli_fetch_assoc($queryGrafik2)) {
 
 <script src="../js/skrip.js"></script>
 <script>
-    // --- GRAFIK 1: TREND PENJUALAN (Omset) ---
     const ctx1 = document.getElementById('chartPenjualan').getContext('2d');
     
-    // Bikin Gradient Ungu (Agar mirip desain)
     const gradientUngu = ctx1.createLinearGradient(0, 0, 0, 400);
-    gradientUngu.addColorStop(0, 'rgba(138, 43, 226, 0.5)'); // Ungu atas
-    gradientUngu.addColorStop(1, 'rgba(138, 43, 226, 0.0)'); // Transparan bawah
+    gradientUngu.addColorStop(0, 'rgba(138, 43, 226, 0.5)');
+    gradientUngu.addColorStop(1, 'rgba(138, 43, 226, 0.0)');
 
     new Chart(ctx1, {
         type: 'line',
         data: {
-            labels: <?= json_encode($label_tgl) ?>, // Ambil dari PHP
+            labels: <?= json_encode($label_tgl) ?>,
             datasets: [{
                 label: 'Total Penjualan (Rp)',
-                data: <?= json_encode($data_omset) ?>, // Ambil dari PHP
-                borderColor: '#8e44ad', // Warna Garis Ungu
-                backgroundColor: gradientUngu, // Warna Isi Bawah
+                data: <?= json_encode($data_omset) ?>,
+                borderColor: '#8e44ad',
+                backgroundColor: gradientUngu,
                 borderWidth: 2,
-                tension: 0.4, // Membuat garis melengkung (smooth)
+                tension: 0.4,
                 fill: true,
                 pointBackgroundColor: '#fff',
                 pointBorderColor: '#8e44ad',
@@ -266,10 +264,8 @@ while($row = mysqli_fetch_assoc($queryGrafik2)) {
         }
     });
 
-    // --- GRAFIK 2: JUMLAH TRANSAKSI (Qty) ---
     const ctx2 = document.getElementById('chartJumlah').getContext('2d');
 
-    // Bikin Gradient Hijau/Teal
     const gradientHijau = ctx2.createLinearGradient(0, 0, 0, 400);
     gradientHijau.addColorStop(0, 'rgba(46, 204, 113, 0.5)');
     gradientHijau.addColorStop(1, 'rgba(46, 204, 113, 0.0)');
