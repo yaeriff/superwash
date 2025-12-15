@@ -59,43 +59,43 @@ $page = 'index';
                     <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #e67e22; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <h4 style="margin: 0 0 10px 0; color: #666; font-size: 14px; font-weight: 500;">Total Karyawan</h4>
+                                <h4 style="margin: 0 0 10px 0; color: #e67e22; font-size: 14px; font-weight: 500;">Total Karyawan</h4>
                                 <p style="margin: 0; font-size: 28px; font-weight: 700; color: #1a253a;"><?php echo $total_karyawan; ?></p>
                             </div>
-                            <i class="fa-solid fa-users" style="font-size: 40px; color: #e67e22; opacity: 0.2;"></i>
+                            <i class="fa-solid fa-users" style="font-size: 40px; color: #e67e22; opacity: 1;"></i>
                         </div>
                     </div>
                     <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #e67e22; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <h4 style="margin: 0 0 10px 0; color: #666; font-size: 14px; font-weight: 500;">Total Layanan</h4>
+                                <h4 style="margin: 0 0 10px 0; color: #e67e22; font-size: 14px; font-weight: 500;">Total Layanan</h4>
                                 <p style="margin: 0; font-size: 28px; font-weight: 700; color: #1a253a;"><?php echo $total_layanan; ?></p>
                             </div>
-                            <i class="fa-solid fa-list" style="font-size: 40px; color: #e67e22; opacity: 0.2;"></i>
+                            <i class="fa-solid fa-list" style="font-size: 40px; color: #e67e22; opacity: 1;"></i>
                         </div>
                     </div>
                     <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #e67e22; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <h4 style="margin: 0 0 10px 0; color: #666; font-size: 14px; font-weight: 500;">Total Transaksi</h4>
+                                <h4 style="margin: 0 0 10px 0; color: #e67e22; font-size: 14px; font-weight: 500;">Total Transaksi</h4>
                                 <p style="margin: 0; font-size: 28px; font-weight: 700; color: #1a253a;"><?php echo $total_transaksi; ?></p>
                             </div>
-                            <i class="fa-solid fa-wallet" style="font-size: 40px; color: #e67e22; opacity: 0.2;"></i>
+                            <i class="fa-solid fa-wallet" style="font-size: 40px; color: #e67e22; opacity: 1;"></i>
                         </div>
                     </div>
                     <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #e67e22; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <h4 style="margin: 0 0 10px 0; color: #666; font-size: 14px; font-weight: 500;">Total Pendapatan</h4>
+                                <h4 style="margin: 0 0 10px 0; color: #e67e22; font-size: 14px; font-weight: 500;">Total Pendapatan</h4>
                                 <p style="margin: 0; font-size: 28px; font-weight: 700; color: #1a253a;">Rp <?php echo number_format($total_pendapatan, 0, ',', '.'); ?></p>
                             </div>
-                            <i class="fa-solid fa-money-bill-wave" style="font-size: 40px; color: #e67e22; opacity: 0.2;"></i>
+                            <i class="fa-solid fa-money-bill-wave" style="font-size: 40px; color: #e67e22; opacity: 1;"></i>
                         </div>
                     </div>
                 </div>
                 <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #ffd700; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                     <h3 style="color: #1a253a; margin-top: 0;">📊 Panel Admin</h3>
-                    <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">Kelola karyawan, layanan, transaksi, dan pesanan dari sini.</p>
+                    <p style="color: #e67e22; line-height: 1.6; margin-bottom: 15px;">Kelola karyawan, layanan, transaksi, dan pesanan dari sini.</p>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <a href="karyawan.php" style="background-color: #e67e22; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 13px;">Kelola Karyawan</a>
                         <a href="layanan.php" style="background-color: #e67e22; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 13px;">Kelola Layanan</a>
