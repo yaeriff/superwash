@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <aside class="sidebar">
             <div class="logo-area">
-                <img src="../img/superwashlogo.png" alt="Logo" />
+                <img src="../img/superwash_logo.png" alt="Logo" />
             </div>
             <nav class="menu">
                 <a href="index.php">
