@@ -94,7 +94,7 @@ $page = 'index';
                     </div>
                 </div>
                 <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 5px solid #ffd700; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3 style="color: #1a253a; margin-top: 0;">📊 Control Panel Admin</h3>
+                    <h3 style="color: #1a253a; margin-top: 0;">📊 Panel Admin</h3>
                     <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">Kelola karyawan, layanan, transaksi, dan pesanan dari sini.</p>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <a href="karyawan.php" style="background-color: #e67e22; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 13px;">Kelola Karyawan</a>
