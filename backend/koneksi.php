@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
-$db   = "superwash_db"; // edit dewe us
+$pass = "123";
+$db   = "db_laundry"; // edit dewe us
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
